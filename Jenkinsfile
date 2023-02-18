@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh "node -v"
         sh "npm -v"
-        //sh "terraform version"
+        sh "terraform version"
       }
     }
     stage("init") {
