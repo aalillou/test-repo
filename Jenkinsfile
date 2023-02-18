@@ -3,8 +3,9 @@
 def gv
 
 pipeline {
-
-  agent { label 'aws' }
+  
+  agent any
+  // agent { label 'aws' }
 
   stages {
     stage('check') {
