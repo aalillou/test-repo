@@ -7,7 +7,13 @@ pipeline {
   agent { label 'aws' }
 
   stages {
-
+    stage('check') {
+      steps {
+        sh "node -v"
+        sh "npm -v"
+        sh "terraform version"
+      }
+    }
     stage("init") {
       steps {
         script {
