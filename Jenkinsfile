@@ -17,7 +17,7 @@ pipeline {
         }
       }
       steps {
-        echo "BRANCH_NAME:${env.BRANCH_NAME}"
+        echo "GIT_BRANCH:${GIT_BRANCH}"
         sh "node -v"
         sh "npm -v"
         sh "terraform version"
