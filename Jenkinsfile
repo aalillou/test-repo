@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
 def gv
+def CODE_CHANGES = true
 
 pipeline {
 
@@ -9,6 +10,11 @@ pipeline {
 
   stages {
     stage('check') {
+      when {
+        expression {
+          BRANCH_NAME == 'dev' && CODE_CHANGES == true
+        }
+      }
       steps {
         sh "node -v"
         sh "npm -v"
@@ -55,5 +61,11 @@ pipeline {
       }
     }
     
+  }
+
+  post {
+    success { echo "post SUCCES !! :-) " }
+    failure { echo "post FAILURE :-( " }
+    always { echo "post ALWAYS !!" }
   }
 }
