@@ -12,10 +12,12 @@ pipeline {
     stage('check') {
       when {
         expression {
-          BRANCH_NAME == 'dev' && CODE_CHANGES == true
+          //BRANCH_NAME == 'dev' && CODE_CHANGES == true
+          CODE_CHANGES == true
         }
       }
       steps {
+        echo "BRANCH_NAME:${BRANCH_NAME}"
         sh "node -v"
         sh "npm -v"
         sh "terraform version"
